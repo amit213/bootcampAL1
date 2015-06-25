@@ -1,0 +1,90 @@
+---
+- hosts: all
+  sudo: yes
+  vars:
+    basic_packages :
+      - [ 'curl', 'screen', 'finger', 'lynx', 'git', 'vim', 'python', 'wget', 'python-pip',
+          'build-essential', 'coreutils', 'curl', 'screen', 'vim', 'unzip', 'nload',
+          'openssh-server', 'ca-certificates', 'postfix', 'nodejs', 'npm'
+        ]
+    special_packages :
+      - [ 'libicu-dev'
+
+        ]
+    centOS_Redhat_packages :
+      - [ 'yum-utils',  ]
+
+  tasks:
+
+    - name: Check that the server's alive
+      action: ping
+
+    - name: update cache
+      apt: update_cache=yes cache_valid_time=3600
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    #- user: name=vmuser uid=1050 group=sudo
+    - user: name=vmuser uid=1050
+    - shell: sudo mkdir -p /home/vmuser/.ssh
+    - shell: sudo cat /root/.ssh/authorized_keys >> /home/vmuser/.ssh/authorized_keys
+    - shell: sudo chown -R vmuser:vmuser /home/vmuser/.ssh
+    - shell: sudo echo "#includedir /etc/sudoers.d" >> /etc/sudoers
+    - shell: sudo echo "vmuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/50-vmuser
+
+    - name: Install prep stuff for ubuntu debain    
+      apt: pkg={{ item }} state=installed
+      with_flattened:
+        - basic_packages
+        - special_packages        
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - name: Install prep stuff for ubuntu
+      apt: pkg={{ item }} state=present
+      with_items:        
+        - curl
+        - screen        
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - name: Install prep stuff for redHat or CentOS
+      yum: pkg={{ item }} state=present
+      with_flattened:        
+        - basic_packages        
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+    - name: Install vim yum-utils
+      yum: pkg={{ item }} state=present
+      with_items:
+        - yum-utils
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+    - name: Install wget package (RedHat based)
+      action: yum name='wget' state=installed
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+    #- name: Install docker on ubuntu
+    #  command: 'wget -qO- https://get.docker.com/ | sh'
+    #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    #install ownCloud
+    #- shell: sudo sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/owncloud.list"
+    #- shell: sudo apt-get update
+    #- shell: sudo apt-get install owncloud -y --force-yes
+    #- shell: cd /tmp
+    #- shell: wget http://download.opensuse.org/repositories/isv:ownCloud:community/xUbuntu_14.04/Release.key
+    #- shell: sudo apt-key add - < Release.key
+
+
+    #- name : create file
+      #sudo : yes
+      #sudo_user: vmuser
+      #command: 'mkdir ~/testDir'
+
+    #- name : do something
+    #  sudo : yes
+    #  sudo_user: vmuser
+    #  apt: pkg={{ item }} state=present
+    #  with_items:        
+    #    - nginx        
+    #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+
