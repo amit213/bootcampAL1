@@ -61,7 +61,7 @@
       action: yum name='wget' state=installed
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-    #- name: Install docker on ubuntu
+    #- name: Install docker on ubuntu via script
     #  command: 'wget -qO- https://get.docker.com/ | sh'
     #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
