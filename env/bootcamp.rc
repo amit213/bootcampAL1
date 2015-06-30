@@ -1,0 +1,9 @@
+#!/bin/sh
+#!/bin/bash
+#author :: Amit Tank
+#License - MIT
+#revision history / summary.
+
+
+echo "Welcome."
+
