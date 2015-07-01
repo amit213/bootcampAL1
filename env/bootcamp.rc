@@ -9,9 +9,10 @@ echo "Welcome."
 
 # set up the env for bootcamp student.
 set_bootcamp_env() {
+  alias s='source ~/prepdir/bootcampAL1/env/bootcamp.rc'
   alias i='cat ~/prepdir/bootcampAL1/env/quickref.txt'
-  alias u='cd ~/prepdir/bootcampAL1; git pull'
-  
+  alias u='cd ~/prepdir/bootcampAL1; git pull; s;'
+
 }
 
 
