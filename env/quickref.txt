@@ -1,3 +1,32 @@
 
 
 Bootcamp Quick Ref. Sheet
+
+
+1. Bootcamp environment setup - student01 / IP address / root access
+2. OpenStack versions - Juno, Kilo, Liberty
+3. ssh root@student01  -i private.key   (2nd option - root password)
+4. git clone https://github.com/openstack-dev/devstack.git -b stable/juno
+5. ./devstack/tools/create-stack-user.sh
+6. su stack; cd;
+7. [ You are now the user “stack” ]
+8. git clone https://github.com/openstack-dev/devstack.git -b stable/juno
+9. cp ~/prepdir/bootcampAL1/local.conf /opt/stack/devstack/
+10. cd ~/devstack/
+11. ./stack.sh
+12. source openrc admin demo
+13. nova list
+14. glance image-create --name "trustyUbuntu" --disk-format qcow2 --copy-from http://uec-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img --container-format bare --is-public True 
+15. nova image-list
+16. nova keypair-add --pub-key ~/.ssh/<keyfile>.pub studentkey
+17. nova flavor-create m1.tmpbox auto 512 8 1
+18. nova flavor-list
+19. neutron security-group-rule-create --protocol tcp --port-range-min 22 --port-range-max 22 --direction ingress default
+20. neutron security-group-rule-create --protocol icmp --direction ingress default
+21. nova boot --image trustyUbuntu --flavor m1.tmpbox --key-name studentkey testbox01 --poll
+22. nova list
+23. nova show <server name or ID>
+24. nova stop / start / resume <server name>
+25. nova reboot <server name>
+26. keystone user-list
+27. keystone endpoint-list / keystone catalog
