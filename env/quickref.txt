@@ -3,13 +3,13 @@
 Bootcamp Quick Ref. Sheet
 
 
-1. Bootcamp environment setup - student01 / IP address / root access
+1. Bootcamp env setup - studentXX / IP / root password in handout
 2. OpenStack versions - Juno, Kilo, Liberty
 3. ssh root@student01  -i private.key   (2nd option - root password)
 4. git clone https://github.com/openstack-dev/devstack.git -b stable/juno
 5. ./devstack/tools/create-stack-user.sh
 6. su stack; cd;
-7. [ You are now the user “stack” ]
+7. [ You are now the user “stack” ] [ Enter “i” for help to see this list ]
 8. git clone https://github.com/openstack-dev/devstack.git -b stable/juno
 9. cp ~/prepdir/bootcampAL1/local.conf /opt/stack/devstack/
 10. cd ~/devstack/
@@ -30,3 +30,5 @@ Bootcamp Quick Ref. Sheet
 25. nova reboot <server name>
 26. keystone user-list
 27. keystone endpoint-list / keystone catalog
+28. Fuel UI - http://10.27.37.10   
+29. http://bit.ly/clouddemo01   (student01 / student01)
