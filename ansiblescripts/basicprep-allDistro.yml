@@ -6,8 +6,8 @@
       - [ 'curl', 'screen', 'finger', 'lynx', 'git', 'vim', 'python', 'wget', 'python-pip',
           'build-essential', 'coreutils', 'curl', 'screen', 'vim', 'unzip', 'nload',
           'openssh-server', 'ca-certificates', 'postfix', 'nodejs', 'npm', 'ansible',
-          'libssl-dev', 'libffi-dev','python-dev', 'libxml2-dev','libpq-dev', 'libxslt1-dev'
-	  'iperf'
+          'libssl-dev', 'libffi-dev','python-dev', 'libxml2-dev','libpq-dev', 'libxslt1-dev',
+          'iperf',
         ]
     special_packages :
       - [ 'libicu-dev'
