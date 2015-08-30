@@ -7,8 +7,12 @@
           'build-essential', 'coreutils', 'curl', 'screen', 'vim', 'unzip', 'nload',
           'openssh-server', 'ca-certificates', 'postfix', 'nodejs', 'npm', 'ansible',
           'libssl-dev', 'libffi-dev','python-dev', 'libxml2-dev','libpq-dev', 'libxslt1-dev',
+<<<<<<< HEAD
           'iperf', 'lxde', 'tightvncserver', 'qemu-kvm', 'libvirt-bin', 'bridge-utils',
           'virt-manager'
+=======
+          'iperf',
+>>>>>>> e34637a45ab758345a95f54ab27db25750e909a2
         ]
     special_packages :
       - [ 'libicu-dev'
