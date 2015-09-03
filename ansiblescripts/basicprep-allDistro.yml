@@ -7,12 +7,8 @@
           'build-essential', 'coreutils', 'curl', 'screen', 'vim', 'unzip', 'nload',
           'openssh-server', 'ca-certificates', 'postfix', 'nodejs', 'npm', 'ansible',
           'libssl-dev', 'libffi-dev','python-dev', 'libxml2-dev','libpq-dev', 'libxslt1-dev',
-<<<<<<< HEAD
           'iperf', 'lxde', 'tightvncserver', 'qemu-kvm', 'libvirt-bin', 'bridge-utils',
           'virt-manager'
-=======
-          'iperf',
->>>>>>> e34637a45ab758345a95f54ab27db25750e909a2
         ]
     special_packages :
       - [ 'libicu-dev'
@@ -68,8 +64,30 @@
       action: yum name='wget' state=installed
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-    #- name: Install docker on ubuntu via script
+    #- name: Install docker on ubuntu
     #  command: 'wget -qO- https://get.docker.com/ | sh'
+    #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    #install ownCloud
+    #- shell: sudo sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/owncloud.list"
+    #- shell: sudo apt-get update
+    #- shell: sudo apt-get install owncloud -y --force-yes
+    #- shell: cd /tmp
+    #- shell: wget http://download.opensuse.org/repositories/isv:ownCloud:community/xUbuntu_14.04/Release.key
+    #- shell: sudo apt-key add - < Release.key
+
+
+    #- name : create file
+      #sudo : yes
+      #sudo_user: vmuser
+      #command: 'mkdir ~/testDir'
+
+    #- name : do something
+    #  sudo : yes
+    #  sudo_user: vmuser
+    #  apt: pkg={{ item }} state=present
+    #  with_items:        
+    #    - nginx        
     #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 
