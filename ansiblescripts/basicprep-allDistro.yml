@@ -29,7 +29,7 @@
     #- user: name=vmuser uid=1050 group=sudo
     - user: name=vmuser uid=1050
     - shell: sudo mkdir -p /home/vmuser/.ssh
-    - shell: sudo cat /root/.ssh/authorized_keys >> /home/vmuser/.ssh/authorized_keys
+    - shell: sudo cat /root/.ssh/authorized_keys* >> /home/vmuser/.ssh/authorized_keys
     - shell: sudo chown -R vmuser:vmuser /home/vmuser/.ssh
     - shell: sudo echo "#includedir /etc/sudoers.d" >> /etc/sudoers
     - shell: sudo echo "vmuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/50-vmuser
