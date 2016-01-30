@@ -32,6 +32,7 @@
     - shell: sudo mkdir -p /home/vmuser/.ssh
     - shell: sudo cat ~/.ssh/authorized_keys* >> /home/vmuser/.ssh/authorized_keys
     - shell: sudo chown -R vmuser:vmuser /home/vmuser/.ssh
+    - shell: echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdG/fQTEWDV1tsT3NZCXmn6uecU5k7TKTj5AWHsAsyB5w3CcbSvp4fLZPFJaQ48ttP2u40QGpeX4GwffhlkzJNhPKXU2cTfuZggtVQf1L2DEcAgLcItKIG0XDjeLrPiZgdNI+qrVEa1pgImcQ1H4EF35am7BfHA46veHqoPNB+XqnIHxNWSsajPXP8dfB/72UDlZWdbCJg9zyCSrXv2X469EUrGrQ5hCholTyd+Kfm4tjgN55p1NfVzPEhCUr9NSLctyRLh1NYpE49CtDW+LLe9rWjDRzro0Ps3vyzuDwWQYTDiDR/nX3O8NHQcgZvYLl/E/UghSB76nlv/HL4eSvJ mbuser@bigrock.local" >> /home/vmuser/.ssh/authorized_keys
     - shell: sudo echo "#includedir /etc/sudoers.d" >> /etc/sudoers
     - shell: sudo echo "vmuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/50-vmuser
 
