@@ -8,7 +8,7 @@
           'openssh-server', 'ca-certificates', 'postfix', 'nodejs', 'npm', 'ansible',
           'libssl-dev', 'libffi-dev','python-dev', 'libxml2-dev','libpq-dev', 'libxslt1-dev',
           'iperf', 'lxde', 'tightvncserver', 'qemu-kvm', 'libvirt-bin', 'bridge-utils',
-          'nfs-common', 'trickle', 'iotop', 'dstat', 'iptraf',
+          'nfs-common', 'trickle', 'iotop', 'dstat', 'iptraf', 'vifm', 'newsbeuter',
           'virt-manager'
         ]
     special_packages :
