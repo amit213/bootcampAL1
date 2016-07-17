@@ -9,7 +9,8 @@
           'libssl-dev', 'libffi-dev','python-dev', 'libxml2-dev','libpq-dev', 'libxslt1-dev',
           'iperf', 'lxde', 'tightvncserver', 'qemu-kvm', 'libvirt-bin', 'bridge-utils',
           'nfs-common', 'trickle', 'iotop', 'dstat', 'iptraf', 'vifm', 'newsbeuter', 'vnstat',
-          'vnstati', 'secure-delete', 'cpulimit', 'ca-certificates',
+          'vnstati', 'secure-delete', 'cpulimit', 'ca-certificates', 'python-software-properties',
+          'apt-transport-https', 'ca-certificates',
           'virt-manager'
         ]
     special_packages :
