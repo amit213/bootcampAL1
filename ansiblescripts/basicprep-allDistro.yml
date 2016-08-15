@@ -10,7 +10,7 @@
           'iperf', 'lxde', 'tightvncserver', 'qemu-kvm', 'libvirt-bin', 'bridge-utils',
           'nfs-common', 'trickle', 'iotop', 'dstat', 'iptraf', 'vifm', 'newsbeuter', 'vnstat',
           'vnstati', 'secure-delete', 'cpulimit', 'ca-certificates', 'python-software-properties',
-          'apt-transport-https', 'ca-certificates',
+          'apt-transport-https', 'ca-certificates', 'etckeeper', 
           'virt-manager'
         ]
     special_packages :
